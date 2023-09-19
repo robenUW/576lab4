@@ -26,7 +26,7 @@
         <!--Load modules-->
 
     <script>
-    require(["esri/config","esri/Map", "esri/views/MapView","esri/widgets/Locate","esri/widgets/Search"], (esriConfig, Map, MapView,Locate, Search) => {
+    require(["esri/config","esri/Map", "esri/views/MapView","esri/widgets/Locate","esri/widgets/Search","esri/layers/FeatureLayer"], (esriConfig, Map, MapView,Locate, Search,FeatureLayer) => {
 
         //add API key//
 
@@ -45,6 +45,7 @@
             zoom: 20 // Zoom level
         });
 
+        //constructor for locate widget
         const locateBtn = new Locate({
             view: view
         });
@@ -54,16 +55,27 @@
           position: "top-left"
         });    
 
-        
+        //constructor for search widget 
         const searchWidget = new Search({
             view: view
         });
+
         // Adds the search widget below other elements in
         // the top left corner of the view
         view.ui.add(searchWidget, {
             position: "top-right",
             index: 2
         });
+        
+        // Create featurelayer from feature service 
+        const layer = new FeatureLayer({ 
+            // URL to the service 
+            url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_4b06f8acf5114f479a48987b76b67511_results/FeatureServer"
+        });
+
+        //add survey results to map
+        map.add(layer);
+
 
     });
     </script>
