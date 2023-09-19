@@ -17,6 +17,27 @@
             height: 100%;
             width: 100%;
             }
+
+
+            .addRecordBtn {
+                position: absolute;
+                z-index: 10;
+                top: 10px;
+                right: 10px;
+                background-color: #0079c1;
+                color: white;
+                padding: 8px 16px;
+                border: none;
+                border-radius: 4px;
+                font-size: 14px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .addRecordBtn:hover {
+                background-color: #005a87;
+            }
+
         </style>
 
 
@@ -82,7 +103,10 @@
 
     </head>
   <body>
-   <!-- defines the page content using the DOM created above in the container for the constructor calle "view" -->
-   <div id="viewDiv"></div>
+    <!--adds button to add records to to survey123 page-->
+    <a href="https://arcg.is/1nv1Lq0"target="_blank" class="addRecordBtn">Add Record</a>
+    
+    <!-- defines the page content using the DOM created above in the container for the constructor calle "view" -->
+    <div id="viewDiv"></div>
   </body>
 </html>
